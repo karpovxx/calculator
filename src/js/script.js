@@ -3,6 +3,8 @@ const resultElement = document.getElementById('result'),
 	number2 = document.getElementById('input2'),
 	btnPlus = document.getElementById('plus'),
 	btnMinus = document.getElementById('minus'),
+	btnMultiply = document.getElementById('multiply'),
+	btnShare = document.getElementById('share'),
 	btnSubmit = document.getElementById('submit')
 let operator = '+'
 
@@ -11,6 +13,12 @@ btnPlus.onclick = () => {
 }
 btnMinus.onclick = () => {
 	operator = '-'
+}
+btnMultiply.onclick = () => {
+	operator = '*'
+}
+btnShare.onclick = () => {
+	operator = '/'
 }
 let printResult = result => {
 	if (result < 0) {
@@ -27,6 +35,10 @@ let computeNumbersWithAction = (inp1, inp2, operatorSymbol) => {
 		return num1 + num2
 	} else if (operatorSymbol == '-') {
 		return num1 - num2
+	} else if (operatorSymbol == '*') {
+		return num1 * num2
+	} else if (operatorSymbol == '/') {
+		return num1 / num2
 	}
 }
 
