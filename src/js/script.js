@@ -1,4 +1,4 @@
-const result = document.getElementById('result'),
+const resultElement = document.getElementById('result'),
 	number1 = document.getElementById('input1'),
 	number2 = document.getElementById('input2'),
 	btnPlus = document.getElementById('plus'),
@@ -12,13 +12,25 @@ btnPlus.onclick = () => {
 btnMinus.onclick = () => {
 	operator = '-'
 }
+let printResult = result => {
+	if (result < 0) {
+		resultElement.style.color = 'red'
+	} else {
+		resultElement.style.color = 'green'
+	}
+	resultElement.textContent = result
+}
+let computeNumbersWithAction = (inp1, inp2, operatorSymbol) => {
+	const num1 = +inp1.value
+	const num2 = +inp2.value
+	if (operatorSymbol == '+') {
+		return num1 + num2
+	} else if (operatorSymbol == '-') {
+		return num1 - num2
+	}
+}
+
 btnSubmit.onclick = () => {
-	if (operator == '+') {
-		const sum = +number1.value + +number2.value
-		result.textContent = sum
-	}
-	if (operator == '-') {
-		const sub = +number1.value - +number2.value
-		result.textContent = sub
-	}
+	const result = computeNumbersWithAction(number1, number2, operator)
+	printResult(result)
 }
