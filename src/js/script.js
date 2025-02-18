@@ -1,3 +1,4 @@
+'use strict'
 const resultElement = document.getElementById('result'),
 	number1 = document.getElementById('input1'),
 	number2 = document.getElementById('input2'),
